@@ -2,6 +2,9 @@
 
 This project is an Angular application that validates Sudoku puzzles. It allows users to input a Sudoku puzzle and checks if the puzzle adheres to the rules of Sudoku.
 
+## Preview
+https://www.loom.com/share/e530e6f888424d8293872a2bfd2cf8dd
+
 ## Prerequisites
 
 Before you begin, ensure you have met the following requirements:
