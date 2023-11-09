@@ -1,0 +1,20 @@
+.mat-drawer {
+	width: 15em;
+}
+
+mat-toolbar {
+	height: 48px !important; // https://github.com/angular/components/blob/master/src/material/toolbar/toolbar.scss
+}
+
+.flex-container {
+	align-content: flex-start;
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	margin-top: 10px;
+}
+
+.center {
+	text-align: center;
+}

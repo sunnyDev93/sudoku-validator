@@ -1,0 +1,9 @@
+body {
+	line-height: 1.4;
+	margin: 2em;
+}
+
+h1,
+h2 {
+	margin-block-start: 1.3em;
+}

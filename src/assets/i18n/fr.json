@@ -1,0 +1,147 @@
+{
+	"SetDigitMessage": {
+		"digitNotCorrect": "Le chiffre {{digit}} est autorisé,\nmais le Sudoku ne serait plus soluble. {{negativePoints}} points perdus !",
+		"digitNotPossible": "Le chiffre {{digit}} n'est plus possible.",
+		"digitNotPossiblePointsLost": "Le chiffre {{digit}} n'est plus possible.\nJe vois {{negativePoints}} points s'envoler!",
+		"solved": "Félicitations!\nVous avez résolu le Sudoku.",
+		"solvedDigit": "Bien!\nVous avez bien placé tous les chiffres '{{digit}}'."
+	},
+	"SolePossibleDigitForCell": "{{digit}} est le seul chiffre possible dans la ligne {{position.row}} et la colonne {{position.col}}.",
+	"SolePossiblePositionForBox": "La ligne {{position.row}} et la colonne {{position.col}} est la seule position possible pour le chiffre {{digit}} dans sa sous-grille.",
+	"SolePossiblePositionForColumn": "La ligne {{position.row}} et la colonne {{position.col}} est la seule position possible pour le chiffre {{digit}} dans sa colonne.",
+	"SolePossiblePositionForRow": "La ligne {{position.row}} et la colonne {{position.col}} est la seule position possible pour le chiffre {{digit}} dans sa ligne.",
+	"about": "À propos de Sudoku Sprint",
+	"again": "Jouer encore une fois",
+	"anonymousPlayer": "'Joueur anonyme'",
+	"cancelButton": "Annuler",
+	"crop": {
+		"label": "Adopter",
+		"title": "Choisir la taille et la position"
+	},
+	"description": "Un jeu de Sudoku rapide en mode duel ou solo",
+	"displayName": {
+		"error": {
+			"required": "Un nom affiché est requis"
+		},
+		"label": "Nom affiché"
+	},
+	"duel": {
+		"error": {
+			"alreadyTwoDuelists": "Ce duel a déjà deux duellistes.",
+			"invalidDuelCode": "Code de duel invalide.",
+			"nonexistentDuelCode": "Ce duel n'existe plus.",
+			"userAlreadyJoinedDuel": "Vous participez déjà à ce duel."
+		},
+		"invitation": "{{displayName}} vous met au défi d'un duel de Sudoku Sprint:",
+		"invite": "Invitez l'adversaire",
+		"label": "Duel",
+		"opponent": {
+			"abandoned": "{{displayName}} a abandonné le duel.",
+			"joined": "{{displayName}} a accepté le duel.",
+			"ready": "{{displayName}} est prêt."
+		},
+		"play": "Jouer",
+		"question": "Êtes-vous sûr d'abandonner cette grille et d'en commencer un duel?",
+		"ready": "Prêt",
+		"result": {
+			"draw": "Le duel s'est terminé par un match nul avec {{myScore}} à {{opponentScore}} points.\nVous avez placé {{mySolvedPositionsLength}}, votre adversaire a placé {{opponentSolvedPositionsLength}} chiffres correctement.",
+			"lost": "Malheureusement, vous avez perdu le duel avec {{myScore}} à {{opponentScore}} points.\nVous avez placé {{mySolvedPositionsLength}}, votre adversaire a placé {{opponentSolvedPositionsLength}} chiffres correctement.",
+			"won": "Félicitations!🎉\nVous avez remporté le duel avec {{myScore}} à {{opponentScore}} points.\nVous avez placé {{mySolvedPositionsLength}}, votre adversaire a placé {{opponentSolvedPositionsLength}} chiffres correctement."
+		},
+		"title": "Défier en duel",
+		"waitingForOpponent": "Attendre l'adversaire"
+	},
+	"email": {
+		"error": {
+			"email": "Veuillez entrer une adresse email valide.",
+			"email-already-in-use": "Cette adresse e-mail est déjà enregistrée.",
+			"required": "Une adresse e-mail est requise.",
+			"user-disabled": "Le compte utilisateur de cette adresse e-mail a été désactivé par un administrateur.",
+			"user-not-found": "Il n'y a pas de compte utilisateur correspondant à cette adresse e-mail. L'utilisateur peut avoir été supprimé."
+		},
+		"label": "Adresse e-mail"
+	},
+	"level": {
+		"label": "Difficulté",
+		"value": {
+			"0": "",
+			"difficult": "Difficile",
+			"easy": "Simple",
+			"medium": "Intermédiaire"
+		}
+	},
+	"loadImageFailed": "Le chargement de l'image a échoué. Seuls les fichiers png, gif et jpg sont autorisés.",
+	"login": {
+		"label": "Connecter",
+		"with": "Connexion avec:",
+		"withGitHub": "Connexion avec GitHub",
+		"withGoogle": "Connexion avec Google",
+		"withTwitter": "Connexion avec Twitter"
+	},
+	"logout": "Déconnexion",
+	"newGame": {
+		"label": "Nouvelle",
+		"question": "Êtes-vous sûr d'abandonner cette grille et d'en commencer un nouvelle?",
+		"title": "Commencer nouvelle grille"
+	},
+	"notYetSolvable": "Le Sudoku ne peut pas encore être résolu sans ambiguïté.",
+	"ownGame": {
+		"label": "Oui",
+		"question": "Êtes-vous sûr d'abandonner ce Sudoku et d'en créer un vous-même?",
+		"title": "Entrer Sudoku personnel"
+	},
+	"password": {
+		"error": {
+			"minlength": "Le mot de passe doit comporter au moins 6 caractères.",
+			"required": "Un mot de passe est requis.",
+			"wrong-password": "Le mot de passe est invalide ou l'utilisateur n'a pas de mot de passe."
+		},
+		"label": "Mot de passe"
+	},
+	"permissionNotificationInfo": "Veuillez confirmer la demande du navigateur si vous voulez être averti dès que l'adversaire s'est joint au duel.",
+	"playAgain": "Jouer à nouveau",
+	"pointsToWin": "Nombre de points que vous pouvez gagner",
+	"privacyPolicy": "Politique de confidentialité",
+	"profile": {
+		"delete": {
+			"label": "Supprimer",
+			"question": "Êtes-vous sûr de vouloir supprimer définitivement votre profil d'utilisateur '{{displayName}}' ({{authProviderDisplayName}})?\n\nCela nécessite une nouvelle authentification si votre dernière connexion remonte à trop longtemps.",
+			"title": "Supprimer le profil"
+		},
+		"edit": "Modifier le profil",
+		"label": "Profil d'utilisateur",
+		"readonly": "Vous êtes actuellement connecté à Sudoku Sprint via {{provider}} et ne pouvez modifier votre profil qu'en vous adressant directement à ce fournisseur d'authentification.",
+		"update": "Actualiser"
+	},
+	"register": {
+		"label": "Registration",
+		"with": "Registration avec:",
+		"withGitHub": "Registration avec GitHub",
+		"withGoogle": "Registration avec Google",
+		"withTwitter": "Registration avec Twitter"
+	},
+	"score": "Score",
+	"share": {
+		"action": "Copier",
+		"message": "Veuillez transmettre cette adresse internet:\n{{url}}",
+		"title": "Partager"
+	},
+	"solePossibleDigit": {
+		"tooltip": "Un seul chiffre est possible ici."
+	},
+	"solveAll": {
+		"label": "Résoudre",
+		"question": "Êtes-vous sûr d'abandonner ce Sudoku et de voir sa solution?",
+		"title": "Résoudre grille"
+	},
+	"solveNext": "Résoudre prochaine case",
+	"theme": {
+		"label": "Changer les couleurs",
+		"value": {
+			"dark-pink-bluegrey": "Sombre: rose, gris",
+			"dark-purple-green": "Sombre: violet, vert",
+			"default": "Claire: bleue, rose",
+			"light-deeppurple-amber": "Claire: violet, ambré"
+		}
+	}
+}

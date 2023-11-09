@@ -1,0 +1,26 @@
+<ng-container *ngIf="!c.solved || c.isDuel; else playAgain">
+	<button
+		mat-icon-button
+		[ngClass]="c.digitCssClasses[digit]"
+		[disabled]="c.digitCssClasses[digit].exhaustedDigit"
+		class="digit"
+		*ngFor="let digit of c.from1to9"
+		(click)="c.digitClicked(digit)"
+	>
+		{{ digit }}
+	</button>
+	<button
+		mat-icon-button
+		[ngClass]="c.digitCssClasses[0]"
+		class="digit"
+		*ngIf="c.isUserDefined"
+		(click)="c.digitClicked(0)"
+	>
+		X
+	</button>
+</ng-container>
+<ng-template #playAgain>
+	<button class="play-again" mat-raised-button color="primary" (click)="c.playAgain()">
+		<span translate>playAgain</span>
+	</button>
+</ng-template>

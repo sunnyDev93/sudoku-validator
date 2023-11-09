@@ -1,0 +1,5 @@
+$cell-size: 9vmin;
+$roboto-to-cell: math.div(5, 8);
+$roboto-font-size: $roboto-to-cell * $cell-size;
+$swanky-to-cell: math.div(6, 8);
+$swanky-font-size: $swanky-to-cell * $cell-size;

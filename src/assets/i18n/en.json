@@ -1,0 +1,146 @@
+{
+	"SetDigitMessage": {
+		"digitNotCorrect": "The digit {{digit}} is allowed,\nbut the Sudoku would not be solvable anymore. {{negativePoints}} points gone!",
+		"digitNotPossible": "Digit {{digit}} is not possible anymore.",
+		"digitNotPossiblePointsLost": "Digit {{digit}} is not possible anymore.\nI see {{negativePoints}} points flying away!",
+		"solved": "Congratulations!\nYou have solved the sudoku.",
+		"solvedDigit": "Well done!\nYou have correctly positioned all the '{{digit}}' digits."
+	},
+	"SolePossibleDigitForCell": "{{digit}} is the only possible digit for row {{position.row}} and column {{position.col}}.",
+	"SolePossiblePositionForBox": "The row {{position.row}} and column {{position.col}} is the only possible position for digit {{digit}} in its box.",
+	"SolePossiblePositionForColumn": "The row {{position.row}} and column {{position.col}} is the only possible position for digit {{digit}} in its column.",
+	"SolePossiblePositionForRow": "The row {{position.row}} and column {{position.col}} is the only possible position for digit {{digit}} in its row.",
+	"about": "About Sudoku Sprint",
+	"again": "Play Again",
+	"anonymousPlayer": "'Anonymous player'",
+	"cancelButton": "Cancel",
+	"crop": {
+		"label": "Apply",
+		"title": "Choose size and position"
+	},
+	"description": "A fast Sudoku game in duel or single-player mode",
+	"displayName": {
+		"error": {
+			"required": "A display name is required"
+		},
+		"label": "Display name"
+	},
+	"duel": {
+		"error": {
+			"alreadyTwoDuelists": "There are already two duelists",
+			"invalidDuelCode": "Invalid duel code",
+			"nonexistentDuelCode": "This duel does not exist anymore",
+			"userAlreadyJoinedDuel": "You have already joined this duel"
+		},
+		"invitation": "{{displayName}} challenges you to a Sudoku Sprint duel:",
+		"invite": "Invite opponent",
+		"label": "Duel",
+		"opponent": {
+			"abandoned": "{{displayName}} has abandoned the duel.",
+			"joined": "{{displayName}} has accepted the duel.",
+			"ready": "{{displayName}} is ready."
+		},
+		"question": "Are you sure to abandon the current Sudoku and start a duel?",
+		"ready": "Ready",
+		"result": {
+			"draw": "The duel has ended in a draw with {{myScore}} to {{opponentScore}} points.\nYou have placed {{mySolvedPositionsLength}}, your opponent has placed {{opponentSolvedPositionsLength}} digits correctly.",
+			"lost": "Unfortunately, you lost the duel with {{myScore}} to {{opponentScore}} points.\nYou have placed {{mySolvedPositionsLength}}, your opponent has placed {{opponentSolvedPositionsLength}} digits correctly.",
+			"won": "Congratulations!🎉\nYou have won the duel with {{myScore}} to {{opponentScore}} points.\nYou have placed {{mySolvedPositionsLength}}, your opponent has placed {{opponentSolvedPositionsLength}} digits correctly."
+		},
+		"title": "Challenge to a Duel",
+		"waitingForOpponent": "Waiting for Opponent"
+	},
+	"email": {
+		"error": {
+			"email": "Please enter a valid email address.",
+			"email-already-in-use": "This e-mail address is already registered",
+			"required": "An email address is required.",
+			"user-disabled": "The user account for this email address has been disabled by an administrator.",
+			"user-not-found": "There is no user account corresponding to this email address. The user may have been deleted."
+		},
+		"label": "Email address"
+	},
+	"level": {
+		"label": "Difficulty",
+		"value": {
+			"0": "",
+			"difficult": "Difficult",
+			"easy": "Easy",
+			"medium": "Medium"
+		}
+	},
+	"loadImageFailed": "Image loading failed. Only png, gif and jpg files are allowed.",
+	"login": {
+		"label": "Login",
+		"with": "Login with:",
+		"withGitHub": "Login with GitHub",
+		"withGoogle": "Login with Google",
+		"withTwitter": "Login with Twitter"
+	},
+	"logout": "Logout",
+	"newGame": {
+		"label": "New Game",
+		"question": "Are you sure to abandon the current Sudoku and start a new one?",
+		"title": "Start New Game"
+	},
+	"notYetSolvable": "The Sudoku cannot be solved unambiguously, yet.",
+	"ownGame": {
+		"label": "Own Sudoku",
+		"question": "Are you sure to abandon the current Sudoku and enter your own one?",
+		"title": "Enter Own Sudoku"
+	},
+	"password": {
+		"error": {
+			"minlength": "The password must be at least 6 characters long.",
+			"required": "A password is required.",
+			"wrong-password": "The password is invalid or the user does not have a password."
+		},
+		"label": "Password"
+	},
+	"permissionNotificationInfo": "Please confirm the browser prompt if you want to be notified when the opponent has joined the duel.",
+	"playAgain": "Play again",
+	"pointsToWin": "Number of points you can win",
+	"privacyPolicy": "Privacy Policy",
+	"profile": {
+		"delete": {
+			"label": "Delete",
+			"question": "Are you sure you want to delete your user profile '{{displayName}}' ({{authProviderDisplayName}}) permanently?\n\nThis requires re-authentication if your last login was too long ago.",
+			"title": "Delete profile"
+		},
+		"edit": "Edit profile",
+		"label": "User profile",
+		"readonly": "You are currently logged in to Sudoku Sprint via {{provider}} and can only change your profile directly with this authentication provider.",
+		"update": "Update"
+	},
+	"register": {
+		"label": "Register",
+		"with": "Register with:",
+		"withGitHub": "Register with GitHub",
+		"withGoogle": "Register with Google",
+		"withTwitter": "Register with Twitter"
+	},
+	"score": "Score",
+	"share": {
+		"action": "Copy",
+		"message": "Please forward this internet address:\n{{url}}",
+		"title": "Share"
+	},
+	"solePossibleDigit": {
+		"tooltip": "Only one digit is possible here."
+	},
+	"solveAll": {
+		"label": "Solve All",
+		"question": "Are you sure to abandon the current Sudoku and to see its solution?",
+		"title": "Solve All"
+	},
+	"solveNext": "Solve Next Field",
+	"theme": {
+		"label": "Change Color Theme",
+		"value": {
+			"dark-pink-bluegrey": "Dark: pink, grey",
+			"dark-purple-green": "Dark: purple, green",
+			"default": "Light: blue, pink",
+			"light-deeppurple-amber": "Light: purple, amber"
+		}
+	}
+}

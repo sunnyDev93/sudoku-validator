@@ -1,0 +1,82 @@
+<button
+	mat-icon-button
+	class="cancel-button"
+	matDialogClose
+	matTooltip="{{ 'cancelButton' | translate }}"
+	matTooltipPosition="above"
+	tabindex="-1"
+>
+	<mat-icon class="close-icon">close</mat-icon>
+</button>
+<h1 mat-dialog-title translate>login.label</h1>
+<mat-dialog-content>
+	<form [formGroup]="formGroup" (keyup.enter)="login()">
+		<mat-form-field>
+			<mat-label translate>email.label</mat-label>
+			<input
+				name="username"
+				matInput
+				required
+				[readonly]="alreadyLoggedIn"
+				type="email"
+				[formControl]="emailControl"
+				autocomplete="email"
+			/>
+			<mat-error>
+				{{ emailControl.errors | inputError: "email" }}
+			</mat-error>
+		</mat-form-field>
+		<mat-form-field>
+			<mat-label translate>password.label</mat-label>
+			<input
+				name="password"
+				matInput
+				required
+				type="password"
+				[formControl]="passwordControl"
+				autocomplete="current-password"
+			/>
+			<mat-error>
+				{{ passwordControl.errors | inputError: "password" }}
+			</mat-error>
+		</mat-form-field>
+	</form>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+	<button
+		mat-raised-button
+		type="submit"
+		color="primary"
+		[disabled]="formGroup.invalid"
+		(click)="login()"
+	>
+		<span translate>login.label</span>
+	</button>
+	<div class="line" *ngIf="!alreadyLoggedIn" translate>
+		login.with
+		<button
+			mat-icon-button
+			matTooltip="{{ 'login.withGoogle' | translate }}"
+			matTooltipPosition="above"
+			(click)="loginWith('google.com')"
+		>
+			<img src="assets/google.svg" alt="Google" />
+		</button>
+		<button
+			mat-icon-button
+			matTooltip="{{ 'login.withGitHub' | translate }}"
+			matTooltipPosition="above"
+			(click)="loginWith('github.com')"
+		>
+			<img src="assets/github.svg" alt="GitHub" />
+		</button>
+		<button
+			mat-icon-button
+			matTooltip="{{ 'login.withTwitter' | translate }}"
+			matTooltipPosition="above"
+			(click)="loginWith('twitter.com')"
+		>
+			<img src="assets/twitter.svg" alt="Twitter" />
+		</button>
+	</div>
+</mat-dialog-actions>

@@ -1,0 +1,56 @@
+{
+	"reportUnusedDisableDirectives": true, // This enables reporting for html files (for ts files it is already enabled via ".eslintrc-recommended-typescript.json")
+	"overrides": [
+		{
+			"files": [
+				"*.ts"
+			],
+			"parserOptions": {
+				"project": [
+					"tsconfig.*?.json",
+					"e2e/tsconfig.json"
+				],
+				"createDefaultProgram": true
+			},
+			"extends": [
+				"plugin:@angular-eslint/all",
+				"./.eslintrc-recommended-typescript.json"
+			],
+			"rules": {
+				"@typescript-eslint/consistent-type-imports": "off", // No need to use type-only imports since runtime values are removed by default (https://github.com/angular/angular-cli/issues/19234#issuecomment-717759883) and I have not seen any improvements in compile time or generated file size when using it. Also, the rule does not work correctly, if "emitDecoratorMetadata" is "false" (which is the default Angular CLI setting).
+				"@typescript-eslint/no-extraneous-class": [
+					"error",
+					{
+						"allowWithDecorator": true // E.g. needed for class AppModule
+					}
+				],
+				"@typescript-eslint/no-invalid-void-type": "off", // Seems to create false warnings for MatDialog.open<T, void, void>(...)
+				"class-methods-use-this": "off", // Methods must not be static in a component class to be easy usable in its template and in a service to be injectable.
+				"max-classes-per-file": [
+					"error",
+					2
+				] // E.g. component class and abstract controller class
+			}
+		},
+		{
+			"files": [
+				"*.component.html"
+			],
+			"extends": [
+				"plugin:@angular-eslint/template/all"
+			],
+			"rules": {
+				"@angular-eslint/template/i18n": "off", // Not useful, because @ngx-translate is used
+				"@angular-eslint/template/button-has-type": "off" // Not useful, button works without type
+			}
+		},
+		{
+			"files": [
+				"*.component.ts"
+			],
+			"extends": [
+				"plugin:@angular-eslint/template/process-inline-templates"
+			]
+		}
+	]
+}

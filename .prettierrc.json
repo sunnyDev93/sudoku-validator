@@ -1,0 +1,19 @@
+{
+	"overrides": [
+		{
+			"files": "*.html",
+			"options": {
+				"parser": "angular"
+			}
+		},
+		{
+			"files": "*.yml",
+			"options": {
+				"useTabs": false
+			}
+		}
+	],
+	"printWidth": 100,
+	"trailingComma": "all",
+	"useTabs": true
+}

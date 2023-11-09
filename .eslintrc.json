@@ -1,0 +1,46 @@
+{
+	"extends": "./.eslintrc-recommended-angular.json",
+	"overrides": [
+		{
+			"files": [
+				"*.ts"
+			],
+			"rules": {
+				"@angular-eslint/component-selector": [
+					"error",
+					{
+						"prefix": "sudoku",
+						"style": "kebab-case",
+						"type": "element"
+					}
+				],
+				"@angular-eslint/directive-selector": [
+					"error",
+					{
+						"prefix": "sudoku",
+						"style": "camelCase",
+						"type": "attribute"
+					}
+				],
+				"@angular-eslint/prefer-on-push-component-change-detection": "off", // Currently the components do not work with OnPush
+				"import/no-extraneous-dependencies": "off", // TODO
+				"max-params": "warn", // TODO (warns for AppComponent.constructor, https://github.com/eslint/eslint/issues/7392 is closed)
+				"unicorn/no-null": "off" // "null" is needed for Firebase
+			}
+		},
+		{
+			"files": [
+				"*.component.html"
+			],
+			"rules": {
+				"@angular-eslint/template/use-track-by-function": "off" // Is not very useful, because often a number is used
+			}
+		},
+		{
+			"files": [
+				"*.component.ts"
+			],
+			"rules": {}
+		}
+	]
+}

@@ -1,0 +1,54 @@
+{
+    "angular.experimental-ivy": true,
+    "cSpell.customWorkspaceDictionaries": ["custom-dictionary"],
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": true
+    },
+    "editor.detectIndentation": false,
+    "editor.formatOnSave": true,
+    "editor.insertSpaces": false,
+    "editor.minimap.enabled": false,
+    "eslint.options": {
+        "extensions": [".ts", ".html"]
+    },
+    "eslint.rules.customizations": [
+        {
+            "rule": "*",
+            "severity": "downgrade"
+        }
+    ],
+    "eslint.validate": [
+        "typescript", "html"
+    ],
+    "files.associations": {
+        ".eslint*.json": "jsonc"
+    },
+    "files.eol": "\n",
+    "files.exclude": {
+        ".git": true,
+        "dist": true
+    },
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
+    "git.enableSmartCommit": true,
+    "git.inputValidationSubjectLength": 999,
+    "git.rebaseWhenSync": true,
+    "gitlens.codeLens.enabled": false,
+    "gitlens.keymap": "none",
+    "json.schemas": [
+        {
+            "fileMatch": ["/.eslintrc*.json"],
+            "url": "https://json.schemastore.org/eslintrc"
+        }
+    ],
+    "search.exclude": {
+        ".git": true,
+        ".vscode": true,
+        "dist": true,
+        "node_modules": true
+    },
+    "typescript.preferences.importModuleSpecifier": "non-relative",
+    "typescript.tsdk": "node_modules\\typescript\\lib",
+    "workbench.colorTheme": "Visual Studio Dark",
+    "workbench.editor.enablePreviewFromQuickOpen": false
+}

@@ -1,0 +1,32 @@
+@use "sass:math";
+@import "../../variables";
+
+$circle-to-cell: math.div(4, 3);
+$circle-size: $circle-to-cell * $cell-size;
+$circle-margin: math.div($circle-size, 4);
+
+@media (orientation: portrait) {
+	:host {
+		margin-top: 2 * $circle-margin;
+		max-width: 5 * ($circle-size + 2 * $circle-margin);
+	}
+}
+
+@media (orientation: landscape) {
+	:host {
+		max-width: 3 * ($circle-size + 2 * $circle-margin);
+	}
+}
+
+.digit {
+	font-family: "Swanky and Moo Moo", Roboto, "Helvetica Neue", sans-serif;
+	font-size: $swanky-font-size;
+	height: $circle-size;
+	margin: math.div($circle-margin, 3) $circle-margin;
+	width: $circle-size;
+}
+
+.play-again {
+	font-size: $swanky-font-size;
+	height: $circle-size;
+}

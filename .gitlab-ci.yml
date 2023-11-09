@@ -1,0 +1,25 @@
+image: node:16-slim
+
+cache:
+  paths:
+    - node_modules/
+
+pages:
+  stage: deploy
+  script:
+    - npm install --omit=optional --no-audit --ignore-scripts
+    - npm audit --audit-level=critical
+    - npm run lint
+    # Either find an image with chrome or migrate to jest and enable the next line
+    # - npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+    - npm run build
+    - npm run compress
+    - mv dist public
+  artifacts:
+    paths:
+      - public
+  only:
+    - master
+  environment:
+    name: production
+    url: https://winni.gitlab.io/$CI_PROJECT_NAME

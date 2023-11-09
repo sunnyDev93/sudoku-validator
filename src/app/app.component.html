@@ -1,0 +1,14 @@
+<mat-sidenav-container fullscreen>
+	<mat-sidenav #sidenav>
+		<sudoku-sidenav></sudoku-sidenav>
+	</mat-sidenav>
+	<mat-sidenav-content>
+		<mat-toolbar color="primary">
+			<sudoku-toolbar></sudoku-toolbar>
+		</mat-toolbar>
+		<div class="flex-container">
+			<sudoku-grid (window:keydown)="keydown($event)"></sudoku-grid>
+			<sudoku-digit class="center"></sudoku-digit>
+		</div>
+	</mat-sidenav-content>
+</mat-sidenav-container>

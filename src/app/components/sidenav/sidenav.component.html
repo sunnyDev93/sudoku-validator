@@ -1,0 +1,52 @@
+<div *ngIf="!c.solved">
+	<button mat-menu-item (click)="c.solveNext()">
+		<mat-icon>help</mat-icon><span translate>solveNext</span>
+	</button>
+	<button mat-menu-item (click)="c.solveAll()">
+		<mat-icon>help_center</mat-icon><span translate>solveAll.title</span>
+	</button>
+	<hr />
+</div>
+
+<button mat-menu-item [matMenuTriggerFor]="newGameMenu">
+	<mat-icon>fiber_new</mat-icon><span translate>newGame.title</span>
+</button>
+<mat-menu #newGameMenu="matMenu">
+	<button mat-menu-item (click)="c.newGame('easy')">
+		<mat-icon>trending_down</mat-icon><span translate>level.value.easy</span>
+	</button>
+	<button mat-menu-item (click)="c.newGame('medium')">
+		<mat-icon>trending_flat</mat-icon><span translate>level.value.medium</span>
+	</button>
+	<button mat-menu-item (click)="c.newGame('difficult')">
+		<mat-icon>trending_up</mat-icon><span translate>level.value.difficult</span>
+	</button>
+</mat-menu>
+
+<button mat-menu-item (click)="c.challengeToDuel()">
+	<mat-icon>group</mat-icon><span translate>duel.title</span>
+</button>
+
+<button mat-menu-item (click)="c.ownGame()">
+	<mat-icon>create</mat-icon><span translate>ownGame.title</span>
+</button>
+<hr />
+
+<button mat-menu-item (click)="c.share()">
+	<mat-icon>share</mat-icon><span translate>share.title</span>
+</button>
+
+<button mat-menu-item (click)="c.about()">
+	<mat-icon>info</mat-icon><span translate>about</span>
+</button>
+
+<button mat-menu-item (click)="c.privacyPolicy()">
+	<mat-icon>privacy_tip</mat-icon><span translate>privacyPolicy</span>
+</button>
+
+<hr />
+
+<ng-container *ngIf="c.debugEnabled">
+	<button mat-menu-item (click)="c.testDuel()">Test duel</button>
+	<button mat-menu-item (click)="c.solveAlmost()">Solve almost</button>
+</ng-container>

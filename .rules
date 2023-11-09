@@ -1,0 +1,11 @@
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /users/{userid} {
+      allow read: if request.auth.uid == userid;
+      allow write: if request.auth.uid == userid &&
+      							request.resource.data.size() == 1 &&
+                   	request.resource.data.theme is string
+    }
+  }
+}
+

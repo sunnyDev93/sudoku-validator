@@ -1,0 +1,52 @@
+<button
+	mat-icon-button
+	class="cancel-button"
+	matDialogClose
+	matTooltip="{{ 'cancelButton' | translate }}"
+	matTooltipPosition="above"
+	tabindex="-1"
+>
+	<mat-icon class="close-icon">close</mat-icon>
+</button>
+<h1 mat-dialog-title translate>profile.edit</h1>
+<mat-dialog-content>
+	<form [formGroup]="formGroup" (keyup.enter)="update()">
+		<div class="center">
+			<button class="a11y" (click)="isReadonly ? null : fileInput.click()" type="button">
+				<img
+					[ngClass]="{ pointer: !isReadonly }"
+					[src]="photoURL"
+					alt="Photo"
+					width="80"
+					height="80"
+				/>
+			</button>
+			<input
+				#fileInput
+				hidden="true"
+				id="fileInput"
+				type="file"
+				accept="image/*"
+				onclick="this.value=null"
+				(change)="fileInputChange(fileInput)"
+			/>
+		</div>
+		<mat-form-field>
+			<mat-label translate>displayName.label</mat-label>
+			<input matInput required [readonly]="isReadonly" [formControl]="displayNameControl" />
+			<mat-error>
+				{{ displayNameControl.errors | inputError: "displayName" }}
+			</mat-error>
+		</mat-form-field>
+	</form>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+	<button
+		mat-raised-button
+		color="primary"
+		[disabled]="formGroup.invalid || isReadonly"
+		(click)="update()"
+	>
+		<span translate>profile.update</span>
+	</button>
+</mat-dialog-actions>

@@ -1,0 +1,28 @@
+<table>
+	<tr *ngFor="let row of c.from1to9" class="row_{{ row }}">
+		<td *ngFor="let col of c.from1to9" class="col_{{ col }}">
+			<!-- eslint-disable-next-line @angular-eslint/template/no-call-expression -- `toPositionString` should be very fast-->
+			<ng-container *ngIf="toPositionString(row, col) as pos">
+				<button
+					mat-button
+					[ngClass]="c.fieldCssClasses[pos] || ''"
+					[disabled]="!c.isUserDefined && c.grid[pos] !== undefined"
+					(click)="c.fieldClicked(pos)"
+					#tooltip="matTooltip"
+					matTooltip="{{
+						c.fieldCssClasses[pos].solePossibleDigit
+							? ('solePossibleDigit.tooltip' | translate)
+							: undefined
+					}}"
+					matTooltipPosition="above"
+					matTooltipShowDelay="1000"
+					[@fieldAnimator]="c.fieldStates[pos]"
+					(@fieldAnimator.done)="(!c.fieldStates[pos])"
+					attr.aria-label="row: {{ row }}, column: {{ col }}"
+				>
+					{{ c.grid[pos] || "&nbsp;" }}
+				</button>
+			</ng-container>
+		</td>
+	</tr>
+</table>

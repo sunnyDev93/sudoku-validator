@@ -1,0 +1,38 @@
+:host {
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.decimal-right {
+	min-width: 3.5em; // minus sign + 3 digits + icon
+	text-align: right;
+}
+
+.mat-icon {
+	vertical-align: sub;
+}
+
+img {
+	border-radius: 50%;
+}
+
+mat-grid-list {
+	button {
+		padding: 0 8px;
+	}
+}
+
+.mat-menu-item {
+	padding-left: 32px;
+
+	&.mat-menu-item-submenu-trigger {
+		&::after {
+			border-color: transparent currentcolor transparent transparent;
+			border-width: 5px 5px 5px 0;
+			left: 16px;
+			right: 0;
+		}
+	}
+}

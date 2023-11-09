@@ -1,0 +1,228 @@
+@use "@angular/material" as mat;
+@use "sass:color";
+@use "sass:map";
+
+.material-icons {
+	direction: ltr;
+	display: inline-block;
+	// stylelint-disable-next-line font-family-no-missing-generic-family-keyword -- There is no generic family for font icons
+	font-family: "Material Icons";
+	font-feature-settings: "liga";
+	font-size: 24px;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-weight: normal;
+	letter-spacing: normal;
+	line-height: 1;
+	text-transform: none;
+	white-space: nowrap;
+	word-wrap: normal;
+}
+
+@include mat.core();
+
+@mixin my-components-theme($theme) {
+	$primary: map.get($theme, primary);
+	$accent: map.get($theme, accent);
+	$warn: map.get($theme, warn);
+	$foreground: map.get($theme, foreground);
+	$background: map.get($theme, background);
+
+	/* for map keys, see https://github.com/angular/material2/blob/master/src/lib/core/theming/_palette.scss */
+	sudoku-grid {
+		tr {
+			border-top-color: mat.get-color-from-palette($foreground, disabled);
+
+			&.row_9 {
+				border-bottom-color: mat.get-color-from-palette($foreground, disabled);
+			}
+		}
+
+		td {
+			border-left-color: mat.get-color-from-palette($foreground, disabled);
+
+			&.col_9 {
+				border-right-color: mat.get-color-from-palette($foreground, disabled);
+			}
+		}
+
+		button {
+			color: mat.get-color-from-palette($foreground, text) !important;
+
+			// stylelint-disable-next-line scss/selector-nest-combinators -- this is shorter
+			&:hover:enabled {
+				background-color: mat.get-color-from-palette($background, focused-button);
+			}
+		}
+
+		.groupForLastSolvedField {
+			background-color: mat.get-color-from-palette($background, status-bar);
+		}
+
+		.initialClue {
+			color: mat.get-color-from-palette($foreground, secondary-text) !important;
+		}
+
+		.lastSolvedField {
+			background-color: color.mix(
+				mat.get-color-from-palette($background, background),
+				mat.get-color-from-palette($primary)
+			) !important;
+		}
+
+		.solePossibleDigit {
+			background-color: color.mix(
+				mat.get-color-from-palette($background, background),
+				mat.get-color-from-palette($accent, lighter)
+			) !important;
+		}
+
+		.solvedByMyself {
+			color: color.mix(
+				mat.get-color-from-palette($foreground, text),
+				mat.get-color-from-palette($accent)
+			) !important;
+
+			&.solvedByOpponent {
+				color: mat.get-color-from-palette($foreground, text) !important;
+			}
+		}
+
+		.solvedByOpponent {
+			color: color.mix(
+				mat.get-color-from-palette($foreground, text),
+				mat.get-color-from-palette($primary)
+			) !important;
+		}
+	}
+
+	sudoku-digit {
+		// stylelint-disable-next-line scss/selector-nest-combinators -- this is shorter
+		.digit:hover:enabled {
+			background-color: mat.get-color-from-palette($background, focused-button);
+		}
+	}
+
+	.selectedDigit {
+		background-color: color.mix(
+			mat.get-color-from-palette($background, background),
+			mat.get-color-from-palette($primary, lighter)
+		) !important;
+	}
+
+	.solved {
+		background-color: mat.get-color-from-palette($accent);
+		text-align: center;
+		white-space: pre-line;
+	}
+
+	.warning {
+		background-color: mat.get-color-from-palette($warn);
+		text-align: center;
+		white-space: pre-line;
+	}
+}
+
+// default theme
+$candy-app-primary: mat.define-palette(mat.$indigo-palette);
+$candy-app-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$candy-app-theme: mat.define-light-theme($candy-app-primary, $candy-app-accent);
+
+@include mat.all-component-themes($candy-app-theme);
+@include my-components-theme($candy-app-theme);
+
+// light-deeppurple-amber theme
+$light-deeppurple-amber-primary: mat.define-palette(mat.$deep-purple-palette);
+$light-deeppurple-amber-accent: mat.define-palette(mat.$amber-palette, A200, A100, A400);
+$light-deeppurple-amber-theme: mat.define-light-theme(
+	$light-deeppurple-amber-primary,
+	$light-deeppurple-amber-accent
+);
+
+.light-deeppurple-amber {
+	@include mat.all-component-themes($light-deeppurple-amber-theme);
+	@include my-components-theme($light-deeppurple-amber-theme);
+}
+
+// dark-pink-bluegrey theme
+$dark-pink-bluegrey-primary: mat.define-palette(mat.$pink-palette, 700, 500, 900);
+$dark-pink-bluegrey-accent: mat.define-palette(mat.$light-blue-palette, A200, A100, A400);
+$dark-pink-bluegrey-theme: mat.define-dark-theme(
+	$dark-pink-bluegrey-primary,
+	$dark-pink-bluegrey-accent
+);
+
+.dark-pink-bluegrey {
+	@include mat.all-component-themes($dark-pink-bluegrey-theme);
+	@include my-components-theme($dark-pink-bluegrey-theme);
+}
+
+// dark-purple-green theme
+$dark-purple-green-primary: mat.define-palette(mat.$purple-palette, 700, 500, 800);
+$dark-purple-green-accent: mat.define-palette(mat.$green-palette, A200, A100, A400);
+$dark-purple-green-theme: mat.define-dark-theme(
+	$dark-purple-green-primary,
+	$dark-purple-green-accent
+);
+
+.dark-purple-green {
+	@include mat.all-component-themes($dark-purple-green-theme);
+	@include my-components-theme($dark-purple-green-theme);
+}
+
+// Swanky and Moo Moo
+// https://google-webfonts-helper.herokuapp.com/fonts/swanky-and-moo-moo?subsets=latin
+@font-face {
+	font-display: swap;
+	font-family: "Swanky and Moo Moo";
+	font-style: normal;
+	font-weight: 400;
+	src: local("Swanky and Moo Moo"), local("SwankyandMooMoo"),
+		url("assets/fonts/swanky-and-moo-moo.woff2") format("woff2");
+}
+
+// Material Icons
+// https://stackoverflow.com/questions/37270835/how-to-host-material-icons-offline
+@font-face {
+	font-display: block;
+	font-family: "Material Icons";
+	font-style: normal;
+	font-weight: 400;
+	src: local("Material Icons"), local("MaterialIcons"),
+		url("assets/fonts/material-icons.woff2") format("woff2");
+}
+
+mat-form-field {
+	width: 100%;
+}
+
+mat-spinner {
+	margin: 0 auto;
+}
+
+.cancel-button {
+	float: right;
+	right: -24px;
+	top: -24px;
+}
+
+.cdk-overlay-pane {
+	// https://github.com/angular/components/issues/3209
+	max-width: 90vw !important;
+}
+
+.countdown {
+	.mat-dialog-container {
+		border-radius: 50%;
+		height: 248px;
+		overflow: hidden !important;
+	}
+}
+
+.mat-simple-snackbar {
+	justify-content: center !important;
+}
+
+.pre-wrap {
+	white-space: pre-wrap;
+}

@@ -1,0 +1,23 @@
+.a11y {
+	background-color: unset;
+	border: 0;
+	padding: 0;
+}
+
+img {
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.center {
+	text-align: center;
+}
+
+.line {
+	text-align: left;
+	width: 100%;
+
+	.mat-icon-button {
+		margin-left: 0;
+	}
+}

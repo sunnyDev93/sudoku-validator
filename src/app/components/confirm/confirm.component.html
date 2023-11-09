@@ -1,0 +1,21 @@
+<button
+	mat-icon-button
+	class="cancel-button"
+	matDialogClose
+	matTooltip="{{ 'cancelButton' | translate }}"
+	matTooltipPosition="above"
+	tabindex="-1"
+>
+	<mat-icon class="close-icon">close</mat-icon>
+</button>
+<h1 mat-dialog-title><span [translate]="keys.title"></span></h1>
+<mat-dialog-content
+	class="pre-wrap"
+	[translate]="keys.question"
+	[translateParams]="keys.interpolateParams"
+></mat-dialog-content>
+<mat-dialog-actions align="center">
+	<button mat-raised-button color="primary" [matDialogClose]="true" cdkFocusInitial>
+		<span [translate]="keys.okButton"></span>
+	</button>
+</mat-dialog-actions>

@@ -1,0 +1,234 @@
+{
+	"extends": [
+		"eslint:all",
+		"plugin:@typescript-eslint/all",
+		"plugin:eslint-comments/recommended",
+		"plugin:promise/recommended",
+		"plugin:rxjs/recommended",
+		"plugin:sonarjs/recommended",
+		"plugin:total-functions/all",
+		"plugin:unicorn/recommended",
+		"prettier"
+	],
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"project": [
+			"./tsconfig.json"
+		],
+		"tsconfigRootDir": "."
+	},
+	"plugins": [
+		"deprecation",
+		"functional",
+		"promise",
+		"rxjs",
+		"sonarjs",
+		"total-functions",
+		"unicorn",
+		"@typescript-eslint"
+	],
+	"reportUnusedDisableDirectives": true,
+	"root": true,
+	"rules": {
+		"@typescript-eslint/array-type": [
+			"error",
+			{
+				"default": "array-simple"
+			}
+		],
+		"@typescript-eslint/ban-ts-comment": [
+			"error",
+			{
+				"ts-expect-error": "allow-with-description"
+			}
+		],
+		"@typescript-eslint/explicit-function-return-type": [
+			"error",
+			{
+				"allowExpressions": true
+			}
+		],
+		"@typescript-eslint/explicit-member-accessibility": [
+			"error",
+			{
+				"accessibility": "no-public"
+			}
+		],
+		"@typescript-eslint/init-declarations": "off", // collides with "no-undef-init"
+		"@typescript-eslint/lines-between-class-members": [
+			"error",
+			"always",
+			{
+				"exceptAfterSingleLine": true
+			}
+		],
+		"@typescript-eslint/member-ordering": [
+			"error",
+			{
+				"default": {
+					"memberTypes": [
+						// Index signature
+						"signature",
+						// Fields
+						"public-static-field",
+						"protected-static-field",
+						"private-static-field",
+						"public-decorated-field",
+						"protected-decorated-field",
+						"private-decorated-field",
+						"public-instance-field",
+						"protected-instance-field",
+						"private-instance-field",
+						"public-abstract-field",
+						"protected-abstract-field",
+						"private-abstract-field",
+						// Constructors
+						"public-constructor",
+						"protected-constructor",
+						"private-constructor",
+						// Methods
+						"decorated-method",
+						"instance-method",
+						"abstract-method",
+						"static-method"
+					]
+				}
+			}
+		],
+		"@typescript-eslint/no-confusing-void-expression": [
+			"error",
+			{
+				"ignoreArrowShorthand": true
+			}
+		],
+		"@typescript-eslint/no-magic-numbers": "off", // more pain than help
+		"@typescript-eslint/no-misused-promises": [
+			"error",
+			{
+				"checksVoidReturn": false // allows async functions as callbacks
+			}
+		],
+		"@typescript-eslint/no-namespace": "off", // A namespace is shorter than an exported class with only static helper functions or lots of exported functions starting with the same name (used in "assert.ts")
+		"@typescript-eslint/no-non-null-assertion": "off", // I will use with care. Honestly...
+		"@typescript-eslint/no-parameter-properties": "off", // rule is only for "those new to TypeScript"
+		"@typescript-eslint/no-type-alias": "off", // more pain than help
+		"@typescript-eslint/no-unnecessary-condition": [
+			"error",
+			{
+				"allowConstantLoopConditions": true
+			}
+		],
+		"@typescript-eslint/no-unused-vars": "off", // "noUnusedLocals" and "noUnusedParameters" in "tsconfig.json" should be enough
+		"@typescript-eslint/no-use-before-define": [
+			"error",
+			{
+				"functions": false
+			}
+		], // I prefer newspaper style
+		"@typescript-eslint/parameter-properties": [
+			"error",
+			{
+				"prefer": "parameter-property"
+			}
+		],
+		"@typescript-eslint/prefer-readonly-parameter-types": "off", // Wait for https://github.com/typescript-eslint/typescript-eslint/issues/1758 and https://github.com/typescript-eslint/typescript-eslint/issues/1790
+		"@typescript-eslint/strict-boolean-expressions": [
+			"error",
+			{
+				"allowNullableBoolean": true // Otherwise this collides with "@typescript-eslint/prefer-optional-chain"
+			}
+		],
+		"@typescript-eslint/unbound-method": [
+			"error",
+			{
+				"ignoreStatic": true
+			}
+		],
+		"capitalized-comments": "off", // more pain than help
+		"consistent-return": "off", // handled by TS and @typescript-eslint/explicit-function-return-type
+		"default-case": "off", // handled by TS and @typescript-eslint/explicit-function-return-type
+		"deprecation/deprecation": "error",
+		"eslint-comments/disable-enable-pair": [
+			"error",
+			{
+				"allowWholeFile": true
+			}
+		],
+		"eslint-comments/no-use": [
+			"error",
+			{
+				"allow": [
+					"eslint-disable",
+					"eslint-disable-next-line"
+				]
+			}
+		],
+		"eslint-comments/require-description": "error",
+		"func-style": [
+			"error",
+			"declaration"
+		],
+		"functional/prefer-readonly-type": [
+			"error",
+			{
+				"ignoreClass": true,
+				"ignoreInterface": true
+			}
+		],
+		"id-length": "off", // more pain than help
+		"max-lines": [
+			"error",
+			1500
+		], // default is 500
+		"max-lines-per-function": [
+			"error",
+			150
+		], // default is 50
+		"max-params": [
+			"error",
+			9
+		], // default is 3
+		"max-statements": [
+			"error",
+			30
+		], // default is 10
+		"multiline-comment-style": "off", // more pain than help
+		"new-cap": "off", // does not make sense for TS
+		"no-plusplus": "off", // plusplus is used and helpful
+		"no-ternary": "off", // ternary is used and helpful
+		"no-undefined": "off", // does not make sense for TS
+		"no-underscore-dangle": "off", // does not make sense for TS
+		"no-void": "off", // more pain than help and seems to create false positives
+		"object-shorthand": [
+			"error",
+			"methods"
+		], // only for methods and not for properties because it is too dangerous
+		"one-var": [
+			"error",
+			"never"
+		],
+		"prefer-destructuring": [
+			"error",
+			{
+				"object": true,
+				"array": false
+			}
+		],
+		"promise/always-return": "off", // is already checked by TS
+		"promise/prefer-await-to-then": "error",
+		"sonarjs/no-use-of-empty-return-value": "off", // false positives (e.g. only declared functions) and is checked by TS
+		"sort-imports": "off", // false positives for "import type" syntax in TS
+		"unicorn/consistent-function-scoping": [
+			"error",
+			{
+				"checkArrowFunctions": false
+			}
+		],
+		"unicorn/no-array-callback-reference": "off", // a function reference is shorter and I never had the described problem
+		"unicorn/no-array-for-each": "off", // false positives for Observable.forEach
+		"unicorn/no-useless-undefined": "off", // does not make sense for TS
+		"unicorn/prefer-node-protocol": "off", // "node: Imports" do not work
+		"unicorn/prefer-top-level-await": "off", // is currently not supported
+		"unicorn/prevent-abbreviations": "off" // more pain than help
+	}
+}

@@ -1,0 +1,55 @@
+<button
+	mat-icon-button
+	class="cancel-button"
+	matDialogClose
+	matTooltip="{{ 'cancelButton' | translate }}"
+	matTooltipPosition="above"
+	tabindex="-1"
+	(click)="cancel()"
+>
+	<mat-icon class="close-icon">close</mat-icon>
+</button>
+<h1 mat-dialog-title translate>duel.label</h1>
+<ng-container *ngIf="duelData">
+	<mat-dialog-content>
+		<div *ngIf="opponent; else shareTemplate">
+			<img
+				[src]="opponent.photoURL || 'assets/no-photo.png'"
+				[alt]="opponent.displayName || ('anonymousPlayer' | translate)"
+			/>
+			<br />
+			{{ opponent.displayName || ("anonymousPlayer" | translate) }}
+		</div>
+		<ng-template #shareTemplate>
+			<div>
+				<button mat-button color="primary" align="center" (click)="invite()">
+					<mat-icon>share</mat-icon><span class="horizontal-margin" translate>duel.invite</span>
+				</button>
+			</div>
+		</ng-template>
+		<mat-form-field>
+			<mat-label translate>level.label</mat-label>
+			<mat-select
+				[value]="duelData.level"
+				(valueChange)="levelChange($event)"
+				[disabled]="myselfReady || opponent?.ready"
+			>
+				<mat-option value="easy" translate="level.value.easy"></mat-option>
+				<mat-option value="medium" translate="level.value.medium"></mat-option>
+				<mat-option value="difficult" translate="level.value.difficult"></mat-option>
+			</mat-select>
+		</mat-form-field>
+	</mat-dialog-content>
+	<mat-dialog-actions align="center">
+		<button mat-raised-button color="primary" [disabled]="waiting" (click)="ready()">
+			<span class="flex-center">
+				<span class="horizontal-margin" [translate]="primaryButtonLabel"></span>
+				<mat-progress-spinner
+					*ngIf="waiting"
+					mode="indeterminate"
+					diameter="15"
+				></mat-progress-spinner>
+			</span>
+		</button>
+	</mat-dialog-actions>
+</ng-container>

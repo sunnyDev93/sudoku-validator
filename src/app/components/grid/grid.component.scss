@@ -1,0 +1,81 @@
+@use "sass:math";
+@import "../../variables";
+
+table {
+	border-collapse: collapse;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+@mixin strong-border($pos) {
+	border-#{$pos}-width: 3px;
+	border-#{$pos}-style: solid;
+}
+
+@mixin faint-border($pos) {
+	border-#{$pos}-width: 1px;
+	border-#{$pos}-style: solid;
+}
+
+tr {
+	@include faint-border(top);
+}
+
+.row_1,
+.row_4,
+.row_7 {
+	@include strong-border(top);
+}
+
+.row_9 {
+	@include strong-border(bottom);
+}
+
+td {
+	@include faint-border(left);
+}
+
+.col_1,
+.col_4,
+.col_7 {
+	@include strong-border(left);
+}
+
+.col_9 {
+	@include strong-border(right);
+}
+
+button {
+	/* to show the selected position when using keys */
+	border-color: transparent;
+	border-radius: 4px;
+	border-style: dotted;
+	border-width: 1px;
+	font-size: $roboto-font-size;
+	height: $cell-size;
+	line-height: math.div($cell-size, 2); // otherwise digits are too far below
+
+	/* unset Material Design values */
+	min-width: unset;
+	padding: unset;
+	width: $cell-size;
+
+	&:not(.initialClue) {
+		font-family: "Swanky and Moo Moo", Roboto, "Helvetica Neue", sans-serif;
+		font-size: $swanky-font-size;
+		padding-top: math.div($cell-size, 10); // otherwise non-clues are too far above
+	}
+}
+
+.selectedPosition {
+	border-color: unset !important;
+}
+
+// hides focus, i.e. dotted outline
+::-moz-focus-inner {
+	border: 0;
+}
+
+:focus {
+	outline: none;
+}

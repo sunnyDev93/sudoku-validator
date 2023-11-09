@@ -1,0 +1,90 @@
+<button mat-icon-button (click)="c.sidenav.open()" aria-label="menu">
+	<mat-icon>menu</mat-icon>
+</button>
+<ng-container *ngIf="!c.isUserDefined; else userDefined">
+	<span class="decimal-right" matTooltip="{{ 'score' | translate }}" matTooltipPosition="above">
+		{{ c.isDuel ? "" + c.myScore + ":" + c.opponentScore : c.myScore }}
+		<mat-icon [color]="c.myScore < c.opponentScore ? 'warn' : undefined">grade</mat-icon>
+	</span>
+	<span
+		*ngIf="!c.isDuel; else duel"
+		matTooltip="{{ 'level.label' | translate }}"
+		matTooltipPosition="above"
+		[translate]="'level.value.' + c.level!"
+	>
+	</span>
+	<ng-template #duel>
+		<span translate>duel.label</span>
+	</ng-template>
+	<span
+		class="decimal-right"
+		matTooltip="{{ 'pointsToWin' | translate }}"
+		matTooltipPosition="above"
+	>
+		{{ pointsToWin }}
+		<mat-icon>timer</mat-icon>
+	</span>
+</ng-container>
+<ng-template #userDefined>Sudoku Sprint</ng-template>
+<button
+	mat-icon-button
+	[matMenuTriggerFor]="profileMenu"
+	matTooltip="{{ c.user?.displayName || 'profile.label' | translate }}"
+	matTooltipPosition="above"
+>
+	<img
+		[src]="c.user?.photoURL || 'assets/no-photo.png'"
+		alt="{{ c.user?.displayName || 'login.label' | translate }}"
+		width="40"
+		height="40"
+	/>
+</button>
+
+<mat-menu #profileMenu="matMenu">
+	<button mat-menu-item [matMenuTriggerFor]="themeMenu">
+		<mat-icon>visibility</mat-icon><span translate>theme.label</span>
+	</button>
+	<mat-menu #themeMenu="matMenu">
+		<mat-grid-list cols="2">
+			<mat-grid-tile
+				*ngFor="let t of c.themes"
+				matTooltip="{{ 'theme.value.' + (t.name || 'default') | translate }}"
+				matTooltipPosition="above"
+				(click)="c.setTheme(t.name)"
+				[style.background-color]="t.backgroundColor"
+			>
+				<button mat-button *ngIf="t.name === c.currentTheme; else unchecked">
+					<mat-icon [style.color]="t.primaryColor">check_circle</mat-icon>
+					<mat-icon [style.color]="t.accentColor">check_circle</mat-icon>
+				</button>
+				<ng-template #unchecked>
+					<button mat-button>
+						<mat-icon [style.color]="t.primaryColor">fiber_manual_record</mat-icon>
+						<mat-icon [style.color]="t.accentColor">fiber_manual_record</mat-icon>
+					</button>
+				</ng-template>
+			</mat-grid-tile>
+		</mat-grid-list>
+	</mat-menu>
+	<hr />
+	<ng-container *ngIf="c.user && !c.user.isAnonymous; else unauthenticated">
+		<button mat-menu-item (click)="c.editProfile()">
+			<mat-icon>edit</mat-icon><span translate>profile.edit</span>
+		</button>
+		<button mat-menu-item (click)="c.deleteProfile()">
+			<mat-icon>delete</mat-icon><span translate>profile.delete.title</span>
+		</button>
+		<hr />
+		<button mat-menu-item (click)="c.logout()">
+			<mat-icon>logout</mat-icon><span translate>logout</span>
+		</button>
+	</ng-container>
+	<ng-template #unauthenticated>
+		<button mat-menu-item (click)="c.login()">
+			<mat-icon>login</mat-icon><span translate>login.label</span>
+		</button>
+		<button mat-menu-item (click)="c.register()">
+			<mat-icon>edit</mat-icon><span translate>register.label</span>
+		</button>
+	</ng-template>
+</mat-menu>

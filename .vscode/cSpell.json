@@ -1,0 +1,31 @@
+{
+	"$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/master/cspell.schema.json",
+	"import": [
+		"node_modules/@cspell/dict-de-de/cspell-ext.json",
+		"node_modules/@cspell/dict-fr-fr/cspell-ext.json"
+	],
+	"dictionaryDefinitions": [
+		{
+			"name": "custom-dictionary",
+			"path": "./custom-dictionary.txt",
+			"addWords": true
+		}
+	],
+	"dictionaries": [
+		"custom-dictionary"
+	],
+	"globRoot": "../",
+	"ignorePaths": [
+		"dist",
+		"**/node_modules/**",
+		"angular.json",
+		"ngsw-config.json",
+		"package.json",
+		"package-lock.json",
+		"tsconfig.json",
+		"*.svg",
+		"*.woff2",
+		"*.xml"
+	],
+	"language": "en,de,fr"
+}

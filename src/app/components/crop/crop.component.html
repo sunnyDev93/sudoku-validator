@@ -1,0 +1,30 @@
+<button
+	mat-icon-button
+	class="cancel-button"
+	matDialogClose
+	matTooltip="{{ 'cancelButton' | translate }}"
+	matTooltipPosition="above"
+	tabindex="-1"
+>
+	<mat-icon class="close-icon">close</mat-icon>
+</button>
+<h1 mat-dialog-title translate>crop.title</h1>
+<mat-dialog-content>
+	<image-cropper
+		[imageBase64]="imageBase64"
+		[aspectRatio]="1"
+		[resizeToWidth]="80"
+		[cropperMinWidth]="40"
+		[onlyScaleDown]="true"
+		[roundCropper]="true"
+		alignImage="center"
+		format="png"
+		(imageCropped)="imageCropped($event)"
+		(loadImageFailed)="loadImageFailed()"
+	></image-cropper
+></mat-dialog-content>
+<mat-dialog-actions align="center">
+	<button mat-raised-button type="submit" color="primary" [matDialogClose]="croppedImage">
+		<span translate>crop.label</span>
+	</button>
+</mat-dialog-actions>

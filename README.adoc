@@ -1,0 +1,35 @@
+= Sudoku Sprint: A fast Sudoku game in duel or single-player mode
+
+Play the game at https://sudoku-sprint.de
+
+== Features
+
+* Solve Sudokus in different levels.
+* Play Sudoku duels with friends.
+* Let help yourself, if you are stuck.
+* Choose a display theme.
+* Play offline.
+* Multiple languages available.
+* Use your mobile or desktop browser.
+* Install as application and enjoy a native look&feel.
+* Log-in and store the current game, score and settings across all devices.
+
+== Used Technologies
+
+* Angular (Front-end web application framework)
+* Material Design (Visual language and components)
+* Firebase ("Backend as a Service" for authentication and storage)
+* Progressive Web App (Native look&feel on mobile devices and offline support)
+* GitLab (Hosting and continuous delivery with tests)
+
+== Build
+
+Sudoku Sprint is based on Angular CLI. If you have not already installed Angular CLI, follow the steps on https://github.com/angular/angular-cli/blob/master/packages/angular/cli/README.md
+
+Afterwards just:
+
+* clone (or download) the sources at https://gitlab.com/winni/angular-sudoku.git
+* open a console
+* `cd angular-sudoku`
+* `npm install`
+* `ng serve -o`

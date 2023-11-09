@@ -1,0 +1,96 @@
+<button
+	mat-icon-button
+	class="cancel-button"
+	matDialogClose
+	matTooltip="{{ 'cancelButton' | translate }}"
+	matTooltipPosition="above"
+	tabindex="-1"
+>
+	<mat-icon class="close-icon">close</mat-icon>
+</button>
+<h1 mat-dialog-title translate>register.label</h1>
+<mat-dialog-content>
+	<form [formGroup]="formGroup" (keyup.enter)="register()">
+		<div class="center">
+			<button class="a11y" (click)="fileInput.click()" type="button">
+				<img [src]="photoURL" alt="Photo" width="80" height="80" />
+			</button>
+			<input
+				#fileInput
+				hidden="true"
+				id="fileInput"
+				type="file"
+				accept="image/*"
+				onclick="this.value=null"
+				(change)="fileInputChange(fileInput)"
+			/>
+		</div>
+		<mat-form-field>
+			<mat-label translate>displayName.label</mat-label>
+			<input matInput required [formControl]="displayNameControl" />
+			<mat-error>
+				{{ displayNameControl.errors | inputError: "displayName" }}
+			</mat-error>
+		</mat-form-field>
+		<mat-form-field>
+			<mat-label translate>email.label</mat-label>
+			<input
+				name="username"
+				matInput
+				required
+				type="email"
+				[formControl]="emailControl"
+				autocomplete="email"
+			/>
+			<mat-error>
+				{{ emailControl.errors | inputError: "email" }}
+			</mat-error>
+		</mat-form-field>
+		<mat-form-field>
+			<mat-label translate>password.label</mat-label>
+			<input
+				name="password"
+				matInput
+				required
+				type="password"
+				[formControl]="passwordControl"
+				autocomplete="new-password"
+			/>
+			<mat-error>
+				{{ passwordControl.errors | inputError: "password" }}
+			</mat-error>
+		</mat-form-field>
+	</form>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+	<button mat-raised-button color="primary" [disabled]="formGroup.invalid" (click)="register()">
+		<span translate>register.label</span>
+	</button>
+	<div class="line" translate>
+		register.with
+		<button
+			mat-icon-button
+			matTooltip="{{ 'register.withGoogle' | translate }}"
+			matTooltipPosition="above"
+			(click)="registerWith('google.com')"
+		>
+			<img src="assets/google.svg" alt="Google" />
+		</button>
+		<button
+			mat-icon-button
+			matTooltip="{{ 'register.withGitHub' | translate }}"
+			matTooltipPosition="above"
+			(click)="registerWith('github.com')"
+		>
+			<img src="assets/github.svg" alt="GitHub" />
+		</button>
+		<button
+			mat-icon-button
+			matTooltip="{{ 'register.withTwitter' | translate }}"
+			matTooltipPosition="above"
+			(click)="registerWith('twitter.com')"
+		>
+			<img src="assets/twitter.svg" alt="Twitter" />
+		</button>
+	</div>
+</mat-dialog-actions>
