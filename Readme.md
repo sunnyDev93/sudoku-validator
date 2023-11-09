@@ -36,7 +36,7 @@ To get started with the project, follow the instructions below:
 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-github-username/sudoku-validator.git
+git clone https://github.com/sunnyDev93/sudoku-validator.git
 ```
 
 2. Navigate into the project directory
@@ -74,20 +74,3 @@ ng test
 ```bash
 ng e2e
 ```
-
-## Optional Enhancements
-
-- Sudoku puzzle generator: This feature allows users to generate random Sudoku puzzles.
-- Puzzle timer: This feature tracks the time taken to solve a Sudoku puzzle.
-- Fixed cells: This feature allows users to mark cells as "fixed" to prevent accidental modification.
-
-## Contributing
-
-Contributions are welcome! Please read the [contributing guidelines](CONTRIBUTING.md) first.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
-```
-
-Please replace `your-github-username` with your actual GitHub username.
